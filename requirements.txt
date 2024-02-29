@@ -31,6 +31,5 @@ soupsieve==2.5
 SQLAlchemy==2.0.22
 typing_extensions==4.8.0
 urllib3==2.0.5
-vboxapi==1.0
 wcwidth==0.2.6
 Flask==1.1.4
