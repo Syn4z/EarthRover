@@ -1,6 +1,104 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #dc3545;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tomato Information</h1>
+    </header>
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#health">Health Benefits</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#varieties">Varieties</a>
+    </nav>
+    <div class="container">
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Tomato is a popular fruit/vegetable (botanically it's a fruit, but often considered a vegetable in culinary contexts) known for its versatility and nutritional value.</p>
+        </section>
+        <section id="health">
+            <h2>Health Benefits</h2>
+            <p>Tomatoes are rich in vitamins, particularly vitamin C and vitamin K. They also contain lycopene, an antioxidant that may help reduce the risk of certain cancers.</p>
+        </section>
+        <section id="recipes">
+            <h2>Recipes</h2>
+            <p>Here are some delicious tomato recipes:</p>
+            <ul>
+                <li>Caprese Salad</li>
+                <li>Tomato Basil Pasta</li>
+                <li>Tomato Soup</li>
+                <li>Bruschetta</li>
+            </ul>
+        </section>
+        <section id="varieties">
+            <h2>Varieties</h2>
+            <p>There are numerous varieties of tomatoes, including Beefsteak, Roma, Cherry, and Heirloom, each with its own unique flavor and texture.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Tomato Info</p>
+    </footer>
+</body>
+</html>
 {% endblock %}   
