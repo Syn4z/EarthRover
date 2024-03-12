@@ -2,13 +2,11 @@ from flask import Flask, request
 import os, uuid
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
-from config import Config
 
 app = Flask(__name__)
-app.config.from_object(Config)
 
 # Azure Blob Storage credentials
-connection_string = app.config['AZURE_STORAGE_CONNECTION_STRING']
+connection_string = app.config['DefaultEndpointsProtocol=https;AccountName=earthroverdb;AccountKey=rfNYUi7xOR1Gq/8pCEqVyqDkvx8VT2yOxM5yeBqd3AEbJw+zn1dImI1dB3jz5M3ILHbDQS85cFZt+ASt5pjkQw==;EndpointSuffix=core.windows.net']
 container_name = str(uuid.uuid4())
 
 # Create a BlobServiceClient object
