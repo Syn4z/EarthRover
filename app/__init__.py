@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_restful import Api
-# from .api.routes import *
+from .api.routes import *
 
 app = Flask(__name__)
 api = Api(app, prefix='/api')
