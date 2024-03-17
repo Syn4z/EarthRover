@@ -1,20 +1,72 @@
-from flask import Flask, render_template
-# from flask_restful import Api
-# from .api.routes import *
+import os, uuid
+from flask import Flask, render_template, request, jsonify, send_file, Response
 from flask_cors import CORS
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.identity import DefaultAzureCredential
 
 app = Flask(__name__)
 CORS(app)
-# api = Api(app, prefix='/api')
-# api.add_resource(upload_image, '/upload')
-# api.add_resource(get_image, '/image/<filename>')
-# api.add_resource(delete_image, '/image/<filename>')
-# api.add_resource(update_image, '/image/<filename>')
+
+azure_storage_connection_string = "DefaultEndpointsProtocol=https;AccountName=earthroverdb;AccountKey=rfNYUi7xOR1Gq/8pCEqVyqDkvx8VT2yOxM5yeBqd3AEbJw+zn1dImI1dB3jz5M3ILHbDQS85cFZt+ASt5pjkQw==;EndpointSuffix=core.windows.net"
+
+def upload_image_to_blob_storage(image_data, filename):
+    blob_service_client = BlobServiceClient.from_connection_string(azure_storage_connection_string)
+    container_name = "photos"
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
+    blob_client.upload_blob(image_data, overwrite=True)
+
+def delete_image_from_blob_storage(filename):
+    blob_service_client = BlobServiceClient.from_connection_string(azure_storage_connection_string)
+    container_name = "photos"
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
+    blob_client.delete_blob()
+
+def get_image_from_blob_storage(filename):
+    blob_service_client = BlobServiceClient.from_connection_string(azure_storage_connection_string)
+    container_name = "photos"
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
+    blob_data = blob_client.download_blob()
+    image_bytes = blob_data.readall() 
+    return image_bytes
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/test', methods=['GET'])
-def upload():
-    return {"This": "works"}
+@app.route('/upload_image', methods=['POST'])
+def upload_image():
+    try:
+        image_file = request.files['image']
+        image_data = image_file.read()
+        filename = image_file.filename
+        upload_image_to_blob_storage(image_data, filename)
+        
+        return jsonify({"message": "Image uploaded successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/image/<filename>', methods=['GET'])
+def get_image(filename):
+    try:
+        image_bytes = get_image_from_blob_storage(filename)
+        return Response(image_bytes, mimetype='image/jpg')
+    except Exception as e:
+        return jsonify({"error": str(e)}), 404
+
+@app.route('/delete_image/<filename>', methods=['DELETE'])
+def delete_image(filename):
+    try:
+        delete_image_from_blob_storage(filename)
+        return jsonify({"message": "Image deleted successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/update_image/<filename>', methods=['PUT'])
+def update_image(filename):
+    try:
+        image_file = request.files['image']
+        image_data = image_file.read()
+        upload_image_to_blob_storage(image_data, filename) 
+        return jsonify({"message": "Image updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
