@@ -1,0 +1,24 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  img {
+    --logo-size: 50px;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin-right: 1rem;
+
+    &.flipped {
+      margin-left: 1rem;
+      margin-right: 0;
+      transform: scaleX(-1);
+    }
+  }
+}

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-font: "Montserrat", sans-serif;
+  --body-background: #191c24;
+  --body-text-color: #f5f5f5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-font);
+}
+
+body {
+  background-color: var(--body-background);
+  color: var(--body-text-color);
+}
+
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.text-green {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.text-yellow {
+  color: yellow;
+}
+
+.text-red {
+  color: red;
+}

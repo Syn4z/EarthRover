@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Late Blight",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 97,
+    "date": "March, 2024",
+    "image": "assets/img/disease_1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Early Blight",
+    "description": "A disease of tomatoes and potatoes. It is caused by a fungus that is spread by water.",
+    "treatment": ["Copper-based fungicide", "Remove infected leaves"],
+    "confidence": 55,
+    "date": "March, 2024",
+    "image": "assets/img/disease_2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bacterial spot",
+    "description": "A disease of many plants. It is caused by a bacterium that is spread by water.",
+    "treatment": ["Preventative copper-based fungicide", "Remove infected leaves"],
+    "confidence": 19,
+    "date": "February, 2024",
+    "image": "assets/img/disease_3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Septoria Leaf Spot",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 87,
+    "date": "March, 2024",
+    "image": "assets/img/disease_4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Anthracnose",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 78,
+    "date": "February, 2024",
+    "image": "assets/img/disease_5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Powdery Mildew",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 65,
+    "date": "February, 2024",
+    "image": "assets/img/disease_6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Fusarium Wilt",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 45,
+    "date": "January, 2024",
+    "image": "assets/img/disease_1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Verticillium Wilt",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 45,
+    "date": "January, 2024",
+    "image": "assets/img/disease_2.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Root Rot",
+    "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 45,
+    "date": "January, 2024",
+    "image": "assets/img/disease_3.jpg"
+  }
+]

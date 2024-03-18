@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+  <div>
+    <h2>{{ disease.name }}</h2>
+    <h3 [ngClass]="{
+      'text-green': disease.confidence > 70,
+      'text-yellow': disease.confidence > 30 && disease.confidence <= 70,
+      'text-red': disease.confidence <= 30
+    }"
+    
+    >Confidence: {{ disease.confidence }} %</h3>
+  </div>
+  <img mat-card-image [src]="disease.image" [alt]="disease.name">
+  <mat-card-content>
+    <p class="description">
+      {{ disease.description }}
+    </p>
+    <h4 class="treatment">Treatment</h4>
+    <ul class="treatment-list">
+      <li class="treatment-item" *ngFor="let t of disease.treatment">
+        {{ t }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

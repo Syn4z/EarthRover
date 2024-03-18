@@ -1,0 +1,25 @@
+.disease-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
+  .disease-card {
+    flex-basis: 31%;
+  }
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin: 1.5rem 0;
+
+  &-month {
+    color: yellow;
+  }
+}
+
+mat-form-field {
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+}
