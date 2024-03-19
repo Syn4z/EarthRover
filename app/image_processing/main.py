@@ -3,7 +3,7 @@ import os
 from PIL import Image
 
 # folder_path = "img/"
-folder_path = "./greenhouse_images/Sanatoasa"
+folder_path = "./greenhouse_images/Carenta de Azot"
 num_images_to_process = 25
 
 # Get a list of all image files in the folder

@@ -7,7 +7,7 @@ import tensorflow as tf
 IMG_SIZE = 256
 
 # Load the model
-loaded_model = tf.keras.models.load_model(f'model_10.h5')
+loaded_model = tf.keras.models.load_model(f'model_17.h5')
 
 class_names = ['Arsura: Burn',
 'Carenta de Azot: Nitrogen Deficiency',
