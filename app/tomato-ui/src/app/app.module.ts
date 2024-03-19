@@ -12,12 +12,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { LiveFeedComponent } from './components/live-feed/live-feed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiseaseCardComponent,
-    DiseaseCardListComponent
+    DiseaseCardListComponent,
+    LiveFeedComponent
   ],
   imports: [
     BrowserModule,
