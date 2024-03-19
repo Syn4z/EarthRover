@@ -13,13 +13,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { LiveFeedComponent } from './components/live-feed/live-feed.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TakePictureDialogComponent } from './components/take-picture-dialog/take-picture-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiseaseCardComponent,
     DiseaseCardListComponent,
-    LiveFeedComponent
+    LiveFeedComponent,
+    TakePictureDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { LiveFeedComponent } from './components/live-feed/live-feed.component';
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
