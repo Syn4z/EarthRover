@@ -22,13 +22,13 @@ export class DiseaseCardListComponent {
   ];
   
   ngOnInit() {
-    this.random = new SeededRandom(123);
+    // this.random = new SeededRandom(123);
     
-    // Shuffle the diseases array
-    for (let i = this.diseases.length - 1; i > 0; i--) {
-      const j = Math.floor(this.random.nextFloat() * (i + 1));
-      [this.diseases[i], this.diseases[j]] = [this.diseases[j], this.diseases[i]];
-    }
+    // // Shuffle the diseases array
+    // for (let i = this.diseases.length - 1; i > 0; i--) {
+    //   const j = Math.floor(this.random.nextFloat() * (i + 1));
+    //   [this.diseases[i], this.diseases[j]] = [this.diseases[j], this.diseases[i]];
+    // }
   }
 
   onSelectionChange(event: MatSelectChange) {

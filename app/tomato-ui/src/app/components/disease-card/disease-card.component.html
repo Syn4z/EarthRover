@@ -14,7 +14,7 @@
     <p class="description">
       {{ disease.description }}
     </p>
-    <h4 class="treatment">Treatment</h4>
+    <h4 class="treatment" *ngIf="disease.name !== 'Healthy'">Treatment</h4>
     <ul class="treatment-list">
       <li class="treatment-item" *ngFor="let t of disease.treatment">
         {{ t }}
