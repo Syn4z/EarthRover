@@ -4,7 +4,7 @@ from flask_cors import CORS
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ResourceNotFoundError
-from app.static.image_processing.image_processing import predict
+# from app.static.image_processing.image_processing import predict
 import mysql.connector
 import requests
 
@@ -79,13 +79,13 @@ def upload_image():
         if model is None:
             model = requests.get(url + '/model/' + model_filename)
         image_to_process = image_file
-        label, confidence = predict(image_to_process, model)
+        # label, confidence = predict(image_to_process, model)
 
         insert_data_url = "{url}/insert_data"
         data = {
             "filename": filename,
-            "label": label,
-            "confidence": confidence
+            "label": 'label',
+            "confidence": 'confidence'
         }
         response = requests.post(insert_data_url, json=data)
 
