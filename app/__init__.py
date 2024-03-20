@@ -4,7 +4,7 @@ from flask_cors import CORS
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ResourceNotFoundError
-from app.static.image_processing.image_processing import predict
+from static.image_processing.image_processing import predict
 import mysql.connector
 import requests
 
@@ -16,6 +16,9 @@ url = 'https://earthrover.azurewebsites.net'
 azure_storage_connection_string = "DefaultEndpointsProtocol=https;AccountName=earthroverdb;AccountKey=rfNYUi7xOR1Gq/8pCEqVyqDkvx8VT2yOxM5yeBqd3AEbJw+zn1dImI1dB3jz5M3ILHbDQS85cFZt+ASt5pjkQw==;EndpointSuffix=core.windows.net"
 container_name = "photos"
 blob_service_client = BlobServiceClient.from_connection_string(azure_storage_connection_string)
+
+model_filename = 'model_34.h5'
+model = None
 
 def upload_image_to_blob_storage(image_data, filename):
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
@@ -34,6 +37,12 @@ def update_image_to_blob_storage(image_data, filename):
 def delete_image_from_blob_storage(filename):
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
     blob_client.delete_blob()
+
+def get_model_from_blob_storage(filename):
+    blob_client = blob_service_client.get_blob_client(container='model', blob=filename)
+    blob_data = blob_client.download_blob()
+    model = blob_data.readall()
+    return model    
 
 def get_mysql_connection():
     return mysql.connector.connect(
@@ -61,19 +70,18 @@ def favicon():
 def serve_js(filename):
     return send_from_directory('static', f'{filename}.js', mimetype='text/javascript')
 
-
 @app.route('/upload_image', methods=['POST'])
 def upload_image():
     try:
         image_file = request.files['image']
         image_data = image_file.read()
         filename = image_file.filename
+        if model is None:
+            model = requests.get(url + '/model/' + model_filename)
         image_to_process = image_file
-        # label, confidence = predict(image_to_process)
-        label = "Tomato"
-        confidence = 0.9
+        label, confidence = predict(image_to_process, model)
 
-        insert_data_url = "{url}/insert_data"  # Change this to match your endpoint URL
+        insert_data_url = "{url}/insert_data"
         data = {
             "filename": filename,
             "label": label,
@@ -141,4 +149,11 @@ def insert_data():
     except Exception as e:
         return jsonify({"error": str(e)}), 500    
        
+@app.route('/model/<filename>', methods=['GET'])    
+def get_model(filename):
+    try:
+        model = get_model_from_blob_storage(filename)
+        return Response(model)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 404
     

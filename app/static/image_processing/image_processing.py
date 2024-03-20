@@ -6,9 +6,6 @@ import tensorflow as tf
 # Constants
 IMG_SIZE = 256
 
-# Load the model
-loaded_model = tf.keras.models.load_model(f'model_31.h5')
-
 class_names = ['Arsura: Burn',
 'Carenta de Azot: Nitrogen Deficiency',
 'Carenta de Potasiu: Potassium Deficiency',
@@ -17,7 +14,8 @@ class_names = ['Arsura: Burn',
 'Sanatoasa: Healthy']
 
 # Define the predict function
-def predict(image_path):
+def predict(image_path, model):
+    loaded_model = tf.keras.models.load_model(model)
     image = tf.keras.preprocessing.image.load_img(image_path, target_size=(IMG_SIZE, IMG_SIZE))
     image_array = tf.keras.preprocessing.image.img_to_array(image)
     image_array = tf.expand_dims(image_array, 0)  # Add batch dimension
