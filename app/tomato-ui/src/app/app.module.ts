@@ -15,11 +15,17 @@ import { FormsModule } from '@angular/forms';
 import { LiveFeedComponent } from './components/live-feed/live-feed.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TakePictureDialogComponent } from './components/take-picture-dialog/take-picture-dialog.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { StatsComponent } from './components/stats/stats.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -42,6 +48,13 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     MatDialogModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatTableModule

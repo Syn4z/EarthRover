@@ -1,16 +1,16 @@
 <div class="list-wrapper">
-  <h2 class="section-title">Gallery</h2>
+  <h2 class="section-title">{{ 'GALLERY' | translate }}</h2>
 
   <div class="filter">
-    <h4>Choose a month</h4>
+    <h4>{{ 'CHOOSE' | translate }}</h4>
     <mat-form-field>
-      <mat-label>Month</mat-label>
+      <mat-label>{{ 'MONTH' | translate}}</mat-label>
       <mat-select
         [value]="selectedValue"
         (selectionChange)="onSelectionChange($event)"
       >
         <mat-option *ngFor="let month of months" [value]="month.value">
-          {{ month.viewValue }}
+          {{ month.viewValue | uppercase | translate }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -20,7 +20,7 @@
     class="section-title section-title-month"
     *ngIf="selectedValue === 'March, 2024' || selectedValue === 'all'"
   >
-    March, 2024
+    {{ 'MARCH' | translate }}, 2024
   </h2>
   <div class="disease-container">
     <ng-container *ngFor="let disease of diseases">
@@ -40,7 +40,7 @@
     class="section-title section-title-month"
     *ngIf="selectedValue === 'February, 2024' || selectedValue === 'all'"
   >
-    February, 2024
+    {{ 'FEBRUARY' | translate }}, 2024
   </h2>
   <div class="disease-container">
     <ng-container *ngFor="let disease of diseases">
@@ -60,7 +60,7 @@
     class="section-title section-title-month"
     *ngIf="selectedValue === 'January, 2024' || selectedValue === 'all'"
   >
-    January, 2024
+    {{ 'JANUARY' | translate }}, 2024
   </h2>
   <div class="disease-container">
     <ng-container *ngFor="let disease of diseases">

@@ -1,6 +1,6 @@
 <mat-card class="example-card">
   <div>
-    <h2>{{ disease.name }}</h2>
+    <h2>{{ disease.name | uppercase | translate }}</h2>
     <h3 [ngClass]="{
       'text-green': disease.confidence > 70,
       'text-yellow': disease.confidence > 30 && disease.confidence <= 70,

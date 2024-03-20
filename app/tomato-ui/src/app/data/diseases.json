@@ -73,7 +73,7 @@
     },
     {
         "id": 8,
-        "name": "Powdery Mildew",
+        "name": "Burn",
         "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
         "treatment": [
             "Fungicide",
