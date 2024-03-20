@@ -11,7 +11,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-url = https://earthrover.azurewebsites.net
+url = 'https://earthrover.azurewebsites.net'
 
 cnx = mysql.connector.connect(
     user="lrronidfvb",
