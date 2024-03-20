@@ -47,5 +47,15 @@
       background-color: #fff;
       color: #ef402b;
     }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: #ef402b;
+        color: #fff;
+      }
+    }
   }
 }

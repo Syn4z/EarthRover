@@ -16,6 +16,10 @@ import { LiveFeedComponent } from './components/live-feed/live-feed.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TakePictureDialogComponent } from './components/take-picture-dialog/take-picture-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StatsComponent } from './components/stats/stats.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     DiseaseCardComponent,
     DiseaseCardListComponent,
     LiveFeedComponent,
-    TakePictureDialogComponent
+    TakePictureDialogComponent,
+    StatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     FormsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

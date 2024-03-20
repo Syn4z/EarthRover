@@ -16,7 +16,7 @@ export class LiveFeedComponent {
   constructor(public dialog: MatDialog, 
               private http: HttpClient) { }
 
-    ngOnInit() {
+  ngOnInit() {
     interval(5000)
       .pipe(
         startWith(0), // to make the first request immediately
@@ -51,7 +51,6 @@ export class LiveFeedComponent {
   changeImgSrc() {
     this.liveImgSrc = '../../../assets/img/loading.gif';
   }
-
 
   openDialog() {
     this.dialog.open(TakePictureDialogComponent, {

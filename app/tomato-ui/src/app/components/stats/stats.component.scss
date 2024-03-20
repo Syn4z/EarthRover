@@ -1,0 +1,14 @@
+.stats {
+  &-title {
+    font-size: 1.75rem;
+    margin: 1.5rem 0;
+  }
+}
+
+.table {
+  &-img {
+    --img-size: 50px;
+    width: var(--img-size);
+    height: var(--img-size);
+  }
+}
