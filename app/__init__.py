@@ -103,17 +103,27 @@ def upload_image():
         image_data = image_file.read()
         filename = image_file.filename
         image_to_process = image_file
-        label, confidence = predict(image_to_process, requests.get(url + '/model/' + model_filename))
+        try:
+            model = requests.get(url + '/model/' + model_filename)
+        except Exception as e:
+            return jsonify({"error1": str(e)}), 500    
+        label, confidence = predict(image_to_process, model)
 
+        try:
+            upload_image_to_blob_storage(image_data, filename)
+        except Exception as e:
+            return jsonify({"error2": str(e)}), 500    
         insert_data_url = "{url}/insert_data"
         data = {
             "filename": filename,
             "label": label,
             "confidence": confidence
         }
-        response = requests.post(insert_data_url, json=data)
+        try:
+            response = requests.post(insert_data_url, json=data)
+        except Exception as e:
+            return jsonify({"error3": str(e)}), 500    
 
-        upload_image_to_blob_storage(image_data, filename)
         
         return jsonify({"message": "Image uploaded successfully"}), 200
     except Exception as e:
