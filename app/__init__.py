@@ -7,11 +7,16 @@ from azure.core.exceptions import ResourceNotFoundError
 # from app.static.image_processing.image_processing import predict
 import mysql.connector
 import requests
+from PIL import Image
+import numpy as np
+import tensorflow as tf
 
 app = Flask(__name__)
 CORS(app)
 
 url = 'https://earthrover.azurewebsites.net'
+# Constants
+IMG_SIZE = 256
 
 azure_storage_connection_string = "DefaultEndpointsProtocol=https;AccountName=earthroverdb;AccountKey=rfNYUi7xOR1Gq/8pCEqVyqDkvx8VT2yOxM5yeBqd3AEbJw+zn1dImI1dB3jz5M3ILHbDQS85cFZt+ASt5pjkQw==;EndpointSuffix=core.windows.net"
 container_name = "photos"
@@ -19,6 +24,28 @@ blob_service_client = BlobServiceClient.from_connection_string(azure_storage_con
 
 model_filename = 'model_34.h5'
 model = None
+
+class_names = ['Arsura: Burn',
+'Carenta de Azot: Nitrogen Deficiency',
+'Carenta de Potasiu: Potassium Deficiency',
+'Carența de Calciu: Calcium Deficiency',
+'Fitotoxicitate: Phytotoxicity',
+'Sanatoasa: Healthy']
+
+# Define the predict function
+def predict(image_path, model):
+    loaded_model = tf.keras.models.load_model(model)
+    image = tf.keras.preprocessing.image.load_img(image_path, target_size=(IMG_SIZE, IMG_SIZE))
+    image_array = tf.keras.preprocessing.image.img_to_array(image)
+    image_array = tf.expand_dims(image_array, 0)  # Add batch dimension
+
+    # Make predictions
+    predictions = loaded_model.predict(image_array)
+
+    # Decode the predictions and return the result
+    predicted_class = class_names[np.argmax(predictions[0])]
+    confidence = np.max(predictions[0])  # Get the confidence score
+    return predicted_class, confidence
 
 def upload_image_to_blob_storage(image_data, filename):
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
@@ -79,13 +106,13 @@ def upload_image():
         if model is None:
             model = requests.get(url + '/model/' + model_filename)
         image_to_process = image_file
-        # label, confidence = predict(image_to_process, model)
+        label, confidence = predict(image_to_process, model)
 
         insert_data_url = "{url}/insert_data"
         data = {
             "filename": filename,
-            "label": 'label',
-            "confidence": 'confidence'
+            "label": label,
+            "confidence": confidence
         }
         response = requests.post(insert_data_url, json=data)
 
