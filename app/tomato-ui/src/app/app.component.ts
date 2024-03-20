@@ -8,11 +8,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'tomato-ui';
+  currentLanguage = 'en';
+
   constructor(private translate: TranslateService) {
-    translate.setDefaultLang('ro');
+    translate.setDefaultLang('en');
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
+    this.currentLanguage = language;
   }
 }

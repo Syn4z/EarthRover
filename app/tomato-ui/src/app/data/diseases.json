@@ -14,7 +14,7 @@
     {
         "id": 2,
         "name": "Nitrogen Deficiency",
-        "description": "A disease of tomatoes and potatoes. It is caused by a fungus that is spread by water.",
+        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
         "treatment": [
             "Copper-based fungicide",
             "Remove infected leaves"
@@ -26,7 +26,7 @@
     {
         "id": 3,
         "name": "Potassium Deficiency",
-        "description": "A disease of many plants. It is caused by a bacterium that is spread by water.",
+        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
         "treatment": [
             "Preventative copper-based fungicide",
             "Remove infected leaves"
@@ -74,7 +74,7 @@
     {
         "id": 8,
         "name": "Burn",
-        "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+        "description": "A common disease of many plants. It is caused by a fungus that is spread by water.",
         "treatment": [
             "Fungicide",
             "Remove infected leaves"
@@ -86,7 +86,7 @@
     {
         "id": 9,
         "name": "Burn",
-        "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
         "treatment": [
             "Fungicide",
             "Remove infected leaves"

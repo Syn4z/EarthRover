@@ -22,3 +22,36 @@
     }
   }
 }
+
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+
+  &.active {
+    background-color: #ef402b;
+    color: var(--white);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-img {
+    --img-size: 30px;
+    width: var(--img-size);
+    height: auto;
+  }
+}
