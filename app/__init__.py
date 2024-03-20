@@ -23,7 +23,6 @@ container_name = "photos"
 blob_service_client = BlobServiceClient.from_connection_string(azure_storage_connection_string)
 
 model_filename = 'model_34.h5'
-model = None
 
 class_names = ['Arsura: Burn',
 'Carenta de Azot: Nitrogen Deficiency',
@@ -103,10 +102,8 @@ def upload_image():
         image_file = request.files['image']
         image_data = image_file.read()
         filename = image_file.filename
-        if model is None:
-            model = requests.get(url + '/model/' + model_filename)
         image_to_process = image_file
-        label, confidence = predict(image_to_process, model)
+        label, confidence = predict(image_to_process, requests.get(url + '/model/' + model_filename))
 
         insert_data_url = "{url}/insert_data"
         data = {
