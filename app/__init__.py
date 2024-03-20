@@ -106,5 +106,4 @@ def insert_data():
         return jsonify({"message": "Data inserted successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500    
-    
-app.run()    
+       
