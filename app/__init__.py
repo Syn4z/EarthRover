@@ -1,5 +1,5 @@
 import os, uuid
-from flask import Flask, render_template, request, jsonify, send_file, Response
+from flask import Flask, send_from_directory, request, jsonify, send_file, Response
 from flask_cors import CORS
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
@@ -47,7 +47,20 @@ def get_mysql_connection():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+  return send_from_directory('static', 'index.html')
+
+@app.route('/<path:path>')
+def static_proxy(path):
+  return send_from_directory('static', path)
+
+@app.route('/favicon.ico')
+def favicon():
+  return send_from_directory('static', 'favicon.ico')
+
+@app.route('/<path:filename>.js')
+def serve_js(filename):
+    return send_from_directory('static', f'{filename}.js', mimetype='text/javascript')
+
 
 @app.route('/upload_image', methods=['POST'])
 def upload_image():
