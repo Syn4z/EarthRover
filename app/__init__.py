@@ -4,7 +4,7 @@ from flask_cors import CORS
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ResourceNotFoundError
-from static.image_processing.image_processing import predict
+from app.static.image_processing.image_processing import predict
 import mysql.connector
 import requests
 
