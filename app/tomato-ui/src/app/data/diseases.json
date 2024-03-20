@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "name": "Calcium Deficiency",
+        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+        "treatment": [
+            "Fungicide",
+            "Remove infected leaves"
+        ],
+        "confidence": 97,
+        "date": "March, 2024",
+        "image": "assets/img/calcium_dis_1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Nitrogen Deficiency",
+        "description": "A disease of tomatoes and potatoes. It is caused by a fungus that is spread by water.",
+        "treatment": [
+            "Copper-based fungicide",
+            "Remove infected leaves"
+        ],
+        "confidence": 55,
+        "date": "March, 2024",
+        "image": "assets/img/nitrogen_dis_1.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Potassium Deficiency",
+        "description": "A disease of many plants. It is caused by a bacterium that is spread by water.",
+        "treatment": [
+            "Preventative copper-based fungicide",
+            "Remove infected leaves"
+        ],
+        "confidence": 19,
+        "date": "March, 2024",
+        "image": "assets/img/potassium_dis_1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Healthy",
+        "description": "No disease detected",
+        "treatment": [],
+        "confidence": 87,
+        "date": "February, 2024",
+        "image": "assets/img/healthy.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Healthy",
+        "description": "No disease detected",
+        "treatment": [],
+        "confidence": 87,
+        "date": "March, 2024",
+        "image": "assets/img/healthy_3.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Healthy",
+        "description": "No disease detected",
+        "treatment": [],
+        "confidence": 78,
+        "date": "February, 2024",
+        "image": "assets/img/healthy_2.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Healthy",
+        "description": "No disease detected",
+        "treatment": [],
+        "confidence": 87,
+        "date": "March, 2024",
+        "image": "assets/img/healthy_4.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Powdery Mildew",
+        "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+        "treatment": [
+            "Fungicide",
+            "Remove infected leaves"
+        ],
+        "confidence": 65,
+        "date": "March, 2024",
+        "image": "assets/img/disease_6.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Burn",
+        "description": "A disease of many plants. It is caused by a fungus that is spread by water.",
+        "treatment": [
+            "Fungicide",
+            "Remove infected leaves"
+        ],
+        "confidence": 45,
+        "date": "January, 2024",
+        "image": "assets/img/burn.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Healthy",
+        "description": "No disease detected",
+        "treatment": [],
+        "confidence": 100,
+        "date": "March, 2024",
+        "image": "assets/img/healthy_5.jpg"
+    }
+]
