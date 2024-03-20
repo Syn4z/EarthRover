@@ -4,7 +4,7 @@ from flask_cors import CORS
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ResourceNotFoundError
-# from app.static.image_processing.image_processing import predict
+# from app/static/image_processing/image_processing import predict
 import mysql.connector
 import requests
 
@@ -12,16 +12,6 @@ app = Flask(__name__)
 CORS(app)
 
 url = 'https://earthrover.azurewebsites.net'
-
-cnx = mysql.connector.connect(
-    user="lrronidfvb",
-    password="EUKQZVK7XG5B63M4$",
-    host="earthrover-server.mysql.database.azure.com",
-    port=3306,
-    database="earthrover-database",
-    ssl_disabled=False
-)
-cursor = cnx.cursor()
 
 azure_storage_connection_string = "DefaultEndpointsProtocol=https;AccountName=earthroverdb;AccountKey=rfNYUi7xOR1Gq/8pCEqVyqDkvx8VT2yOxM5yeBqd3AEbJw+zn1dImI1dB3jz5M3ILHbDQS85cFZt+ASt5pjkQw==;EndpointSuffix=core.windows.net"
 container_name = "photos"
@@ -45,6 +35,16 @@ def delete_image_from_blob_storage(filename):
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
     blob_client.delete_blob()
 
+def get_mysql_connection():
+    return mysql.connector.connect(
+        user="lrronidfvb",
+        password="EUKQZVK7XG5B63M4$",
+        host="earthrover-server.mysql.database.azure.com",
+        port=3306,
+        database="earthrover-database",
+        ssl_disabled=False
+    )
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -59,7 +59,7 @@ def upload_image():
         # label, confidence = predict(image_to_process)
         label = "Tomato"
         confidence = 0.9
-        
+
         insert_data_url = "{url}/insert_data"  # Change this to match your endpoint URL
         data = {
             "filename": filename,
@@ -113,14 +113,19 @@ def insert_data():
             blob_client.get_blob_properties()
         except ResourceNotFoundError:
             return jsonify({"error": "File not found in Azure Blob Storage"}), 404
-
+        
+        cnx = get_mysql_connection()
+        cursor = cnx.cursor()
         cursor.execute('''
             INSERT INTO tomato (filename, label, confidence)
             VALUES (%s, %s, %s)
         ''', (filename, label, confidence))
         cnx.commit()
+        cursor.close()
+        cnx.close()
 
         return jsonify({"message": "Data inserted successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500    
        
+    
