@@ -102,53 +102,13 @@ def serve_js(filename):
 def upload_image():
     try:
         image_file = request.files['image']
+        image_data = image_file.read()
         filename = image_file.filename
-        
-        try:
-            model_bytes = get_model_from_blob_storage(model_filename)
-            with h5py.File('model.h5', 'w') as hf:
-                hf.create_dataset('model', data=model_bytes)
-        except Exception as e:
-            return jsonify({"error 1": str(e)}), 500
-
-        try:
-            label, confidence = predict(image_file, 'model.h5')
-        except Exception as e:
-            return jsonify({"error 3": str(e)}), 500
-
-        try:
-            upload_image_to_blob_storage(image_file.read(), filename)
-        except Exception as e:
-            return jsonify({"error 3": str(e)}), 500    
-        
-        insert_data_url = "{url}/insert_data"
-        data = {
-            "filename": filename,
-            "label": label,
-            "confidence": confidence
-        }
-        try:
-            try:
-                blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
-                blob_client.get_blob_properties()
-            except ResourceNotFoundError:
-                return jsonify({"error 4": "File not found in Azure Blob Storage"}), 404
-            
-            cnx = get_mysql_connection()
-            cursor = cnx.cursor()
-            cursor.execute('''
-                INSERT INTO tomato (filename, label, confidence)
-                VALUES (%s, %s, %s)
-            ''', (filename, label, confidence))
-            cnx.commit()
-            cursor.close()
-            cnx.close()
-        except Exception as e:
-            return jsonify({"error 5": str(e)}), 500    
+        upload_image_to_blob_storage(image_data, filename)
         
         return jsonify({"message": "Image uploaded successfully"}), 200
     except Exception as e:
-        return jsonify({"error 6": str(e)}), 500
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/image/<filename>', methods=['GET'])
 def get_image(filename):
