@@ -25,5 +25,6 @@
   "Name": "Name",
   "Image": "Image",
   "Confidence": "Confidence",
-  "Date": "Date"
+  "Date": "Date",
+  "REFRESH": "Refresh"
 }

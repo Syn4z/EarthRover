@@ -11,6 +11,7 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 import io
+import h5py
 
 app = Flask(__name__)
 CORS(app)
@@ -104,16 +105,16 @@ def upload_image():
         filename = image_file.filename
         
         try:
-            model = get_model_from_blob_storage(model_filename)
-            model = io.BytesIO(model)
-            # loaded_model = tf.keras.models.load_model(model)
+            model_bytes = get_model_from_blob_storage(model_filename)
+            with h5py.File('model.h5', 'w') as hf:
+                hf.create_dataset('model', data=model_bytes)
         except Exception as e:
             return jsonify({"error 1": str(e)}), 500
-        
+
         try:
-            label, confidence = predict(image_file, model)
+            label, confidence = predict(image_file, 'model.h5')
         except Exception as e:
-            return jsonify({"error 2": str(e)}), 500
+            return jsonify({"error 3": str(e)}), 500
 
         try:
             upload_image_to_blob_storage(image_file.read(), filename)
@@ -201,7 +202,24 @@ def insert_data():
 
         return jsonify({"message": "Data inserted successfully"}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500    
+        return jsonify({"error": str(e)}), 500 
+
+@app.route('/photo_analysis', methods=['GET'])
+def get_data():
+    cnx = get_mysql_connection()
+    cursor = cnx.cursor()
+    cursor.execute('''
+        SELECT label, confidence FROM tomato
+    ''', (label, confidence))
+    result = cursor.fetchone()
+    cursor.close()
+    cnx.close()
+
+    if result:
+        label, confidence = result
+        return jsonify({"name": label, "confidence": confidence}), 200
+    else:
+        return jsonify({"error": "No data found"}), 404   
        
 @app.route('/model/<filename>', methods=['GET'])    
 def get_model(filename):
