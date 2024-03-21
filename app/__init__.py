@@ -106,13 +106,23 @@ def upload_image():
         try:
             model = get_model_from_blob_storage(model_filename)
         except Exception as e:
-            return jsonify({"error1": str(e)}), 500    
-        label, confidence = predict(image_to_process, model)
+            return jsonify({"error1": str(e)}), 500
+        
+        try:
+          loaded_model = tf.keras.models.load_model(model)
+        except Exception as e:
+            return jsonify({"error_load_model": str(e)}), 500
+        
+        try:
+          label, confidence = predict(image_to_process, loaded_model)
+        except Exception as e:
+            return jsonify({"error_predict": str(e)}), 500
 
         try:
             upload_image_to_blob_storage(image_data, filename)
         except Exception as e:
             return jsonify({"error2": str(e)}), 500    
+        
         insert_data_url = "{url}/insert_data"
         data = {
             "filename": filename,
