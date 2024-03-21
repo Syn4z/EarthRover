@@ -100,28 +100,23 @@ def serve_js(filename):
 def upload_image():
     try:
         image_file = request.files['image']
-        image_data = image_file.read()
         filename = image_file.filename
-        image_to_process = image_file
+        
         try:
             model = get_model_from_blob_storage(model_filename)
+            loaded_model = tf.keras.models.load_model(model)
         except Exception as e:
-            return jsonify({"error1": str(e)}), 500
+            return jsonify({"error 1": str(e)}), 500
         
         try:
-          loaded_model = tf.keras.models.load_model(model)
+            label, confidence = predict(image_file, loaded_model)
         except Exception as e:
-            return jsonify({"error_load_model": str(e)}), 500
-        
-        try:
-          label, confidence = predict(image_to_process, loaded_model)
-        except Exception as e:
-            return jsonify({"error_predict": str(e)}), 500
+            return jsonify({"error 2": str(e)}), 500
 
         try:
-            upload_image_to_blob_storage(image_data, filename)
+            upload_image_to_blob_storage(image_file.read(), filename)
         except Exception as e:
-            return jsonify({"error2": str(e)}), 500    
+            return jsonify({"error 3": str(e)}), 500    
         
         insert_data_url = "{url}/insert_data"
         data = {
@@ -134,7 +129,7 @@ def upload_image():
                 blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
                 blob_client.get_blob_properties()
             except ResourceNotFoundError:
-                return jsonify({"error": "File not found in Azure Blob Storage"}), 404
+                return jsonify({"error 4": "File not found in Azure Blob Storage"}), 404
             
             cnx = get_mysql_connection()
             cursor = cnx.cursor()
@@ -146,11 +141,11 @@ def upload_image():
             cursor.close()
             cnx.close()
         except Exception as e:
-            return jsonify({"error3": str(e)}), 500    
+            return jsonify({"error 5": str(e)}), 500    
         
         return jsonify({"message": "Image uploaded successfully"}), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error 6": str(e)}), 500
 
 @app.route('/image/<filename>', methods=['GET'])
 def get_image(filename):
