@@ -104,7 +104,7 @@ def upload_image():
         filename = image_file.filename
         image_to_process = image_file
         try:
-            model = requests.get(url + '/model/' + model_filename)
+            model = get_model_from_blob_storage(model_filename)
         except Exception as e:
             return jsonify({"error1": str(e)}), 500    
         label, confidence = predict(image_to_process, model)
@@ -120,10 +120,23 @@ def upload_image():
             "confidence": confidence
         }
         try:
-            response = requests.post(insert_data_url, json=data)
+            try:
+                blob_client = blob_service_client.get_blob_client(container=container_name, blob=filename)
+                blob_client.get_blob_properties()
+            except ResourceNotFoundError:
+                return jsonify({"error": "File not found in Azure Blob Storage"}), 404
+            
+            cnx = get_mysql_connection()
+            cursor = cnx.cursor()
+            cursor.execute('''
+                INSERT INTO tomato (filename, label, confidence)
+                VALUES (%s, %s, %s)
+            ''', (filename, label, confidence))
+            cnx.commit()
+            cursor.close()
+            cnx.close()
         except Exception as e:
             return jsonify({"error3": str(e)}), 500    
-
         
         return jsonify({"message": "Image uploaded successfully"}), 200
     except Exception as e:
