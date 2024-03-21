@@ -10,6 +10,7 @@ import requests
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import io
 
 app = Flask(__name__)
 CORS(app)
@@ -104,12 +105,13 @@ def upload_image():
         
         try:
             model = get_model_from_blob_storage(model_filename)
-            loaded_model = tf.keras.models.load_model(model)
+            model = io.BytesIO(model)
+            # loaded_model = tf.keras.models.load_model(model)
         except Exception as e:
             return jsonify({"error 1": str(e)}), 500
         
         try:
-            label, confidence = predict(image_file, loaded_model)
+            label, confidence = predict(image_file, model)
         except Exception as e:
             return jsonify({"error 2": str(e)}), 500
 
