@@ -16,8 +16,13 @@ def upload_image():
     if image.filename == '':
         return jsonify({'error': 'No selected file'})
     
-    filename = os.path.join(UPLOAD_FOLDER, image.filename)
-    image.save(filename)
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
+    if image.filename in os.listdir(UPLOAD_FOLDER):
+        return jsonify({'error': 'File already exists'})
+    else:    
+        filename = os.path.join(UPLOAD_FOLDER, image.filename)
+        image.save(filename)
     
     label, confidence = predict(filename)
     new_image = PredictedImages(name=image.filename, label=str(label), confidence=confidence*100)
@@ -58,3 +63,16 @@ def get_image(image_id):
         return jsonify({'filename': image.name, 'label': image.label, 'confidence': image.confidence})
     else:
         return jsonify({'error': 'Image not found'})
+    
+@routes.route('/image', methods=['GET'])
+def get_all_images():
+    images = PredictedImages.query.all()
+    image_list = []
+    for image in images:
+        image_data = {
+            'filename': image.name,
+            'label': image.label,
+            'confidence': image.confidence
+        }
+        image_list.append(image_data)
+    return jsonify({'images': image_list})    
