@@ -1,0 +1,11 @@
+<div class="live-container">
+  <img class="live-icon" src="../../../assets/img/live_icon.png" alt="live icon">
+  <h2 class="live-title">{{ 'LIVE' | translate }}</h2>
+</div>
+<div class="live-img-container">
+  <img class="live-img" [src]="liveImgSrc" alt="Loading...">
+  <button class="live-btn" type="button"
+  (click)="openDialog()">
+    {{ 'PICTURE' | translate }}
+</button>
+</div>

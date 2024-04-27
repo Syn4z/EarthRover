@@ -1,0 +1,28 @@
+.result {
+  margin-bottom: 2rem;
+  
+  &-container {
+    overflow-y: scroll;
+    width: 700px;
+    height: 700px;
+    padding: 2rem 1rem;
+  }
+
+  &-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &-title, 
+  &-verdict, 
+  &-confidence {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+}

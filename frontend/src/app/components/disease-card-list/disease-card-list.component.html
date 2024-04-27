@@ -1,0 +1,78 @@
+<div class="list-wrapper">
+  <h2 class="section-title">{{ 'GALLERY' | translate }}</h2>
+
+  <div class="filter">
+    <h4>{{ 'CHOOSE' | translate }}</h4>
+    <mat-form-field>
+      <mat-label>{{ 'MONTH' | translate}}</mat-label>
+      <mat-select
+        [value]="selectedValue"
+        (selectionChange)="onSelectionChange($event)"
+      >
+        <mat-option *ngFor="let month of months" [value]="month.value">
+          {{ month.viewValue | uppercase | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <h2
+    class="section-title section-title-month"
+    *ngIf="selectedValue === 'March, 2024' || selectedValue === 'all'"
+  >
+    {{ 'MARCH' | translate }}, 2024
+  </h2>
+  <div class="disease-container">
+    <ng-container *ngFor="let disease of diseases">
+      <app-disease-card
+        class="disease-card"
+        *ngIf="
+          (selectedValue === 'all' && disease.date === 'March, 2024') ||
+          (selectedValue === 'March, 2024' && disease.date === selectedValue)
+        "
+        [disease]="disease"
+      >
+      </app-disease-card>
+    </ng-container>
+  </div>
+
+  <h2
+    class="section-title section-title-month"
+    *ngIf="selectedValue === 'February, 2024' || selectedValue === 'all'"
+  >
+    {{ 'FEBRUARY' | translate }}, 2024
+  </h2>
+  <div class="disease-container">
+    <ng-container *ngFor="let disease of diseases">
+      <app-disease-card
+        class="disease-card"
+        *ngIf="
+          (selectedValue === 'all' && disease.date === 'February, 2024') ||
+          (selectedValue === 'February, 2024' && disease.date === selectedValue)
+        "
+        [disease]="disease"
+      >
+      </app-disease-card>
+    </ng-container>
+  </div>
+
+  <h2
+    class="section-title section-title-month"
+    *ngIf="selectedValue === 'January, 2024' || selectedValue === 'all'"
+  >
+    {{ 'JANUARY' | translate }}, 2024
+  </h2>
+  <div class="disease-container">
+    <ng-container *ngFor="let disease of diseases">
+      <app-disease-card
+        class="disease-card"
+        *ngIf="
+          (selectedValue === 'all' && disease.date === 'January, 2024') ||
+          (selectedValue === 'January, 2024' && disease.date === selectedValue)
+        "
+        [disease]="disease"
+      >
+      </app-disease-card>
+    </ng-container>
+  </div>
+</div>
