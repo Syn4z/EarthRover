@@ -7,14 +7,14 @@ import tensorflow as tf
 IMG_SIZE = 256
 
 # Load the model
-loaded_model = tf.keras.models.load_model(f'model_31.h5')
+loaded_model = tf.keras.models.load_model(f'../model_34.h5')
 
-class_names = ['Arsura: Burn',
-'Carenta de Azot: Nitrogen Deficiency',
-'Carenta de Potasiu: Potassium Deficiency',
-'Carența de Calciu: Calcium Deficiency',
-'Fitotoxicitate: Phytotoxicity',
-'Sanatoasa: Healthy']
+class_names = ['Scorch',
+'Nitrogen Deficiency',
+'Potassium Deficiency',
+'Calcium Deficiency',
+'Phytotoxicity',
+'Healthy']
 
 # Define the predict function
 def predict(image_path):
