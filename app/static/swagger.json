@@ -1,117 +1,117 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "title": "Image Processing API",
-      "version": "1.0"
-    },
-    "paths": {
-      "/image": {
-        "post": {
-          "summary": "Upload an image for processing",
-          "consumes": [
-            "multipart/form-data"
-          ],
-          "parameters": [
-            {
-              "name": "image",
-              "in": "formData",
-              "type": "file",
-              "required": true,
-              "description": "The image file to upload"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Image uploaded successfully"
-            },
-            "400": {
-              "description": "Bad request"
-            }
+  "swagger": "2.0",
+  "info": {
+    "title": "Image Processing API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/image": {
+      "post": {
+        "summary": "Upload an image for processing",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "image",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "The image file to upload"
           }
-        },
-        "get": {
-          "summary": "Get all predicted images",
-          "responses": {
-            "200": {
-              "description": "A list of predicted images"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image uploaded successfully"
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       },
-      "/image/{image_id}": {
-        "get": {
-          "summary": "Get a predicted image by ID",
-          "parameters": [
-            {
-              "name": "image_id",
-              "in": "path",
-              "required": true,
-              "type": "integer",
-              "description": "ID of the predicted image to retrieve"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "The predicted image"
-            },
-            "404": {
-              "description": "Image not found"
-            }
+      "get": {
+        "summary": "Get all predicted images",
+        "responses": {
+          "200": {
+            "description": "A list of predicted images"
           }
-        },
-        "put": {
-          "summary": "Update a predicted image",
-          "parameters": [
-            {
-              "name": "image_id",
-              "in": "path",
-              "required": true,
-              "type": "integer",
-              "description": "ID of the predicted image to update"
-            },
-            {
-              "name": "label",
-              "in": "formData",
-              "type": "string",
-              "description": "New label for the image"
-            },
-            {
-              "name": "confidence",
-              "in": "formData",
-              "type": "number",
-              "description": "New confidence for the image"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Image updated successfully"
-            },
-            "404": {
-              "description": "Image not found"
-            }
+        }
+      }
+    },
+    "/image/{image_id}": {
+      "get": {
+        "summary": "Get a predicted image by ID",
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the predicted image to retrieve"
           }
-        },
-        "delete": {
-          "summary": "Delete a predicted image",
-          "parameters": [
-            {
-              "name": "image_id",
-              "in": "path",
-              "required": true,
-              "type": "integer",
-              "description": "ID of the predicted image to delete"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "Image deleted successfully"
-            },
-            "404": {
-              "description": "Image not found"
-            }
+        ],
+        "responses": {
+          "200": {
+            "description": "The predicted image"
+          },
+          "404": {
+            "description": "Image not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a predicted image",
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the predicted image to update"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "type": "string",
+            "description": "New label for the image"
+          },
+          {
+            "name": "confidence",
+            "in": "formData",
+            "type": "number",
+            "description": "New confidence for the image"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image updated successfully"
+          },
+          "404": {
+            "description": "Image not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a predicted image",
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID of the predicted image to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image deleted successfully"
+          },
+          "404": {
+            "description": "Image not found"
           }
         }
       }
     }
   }
+}
   

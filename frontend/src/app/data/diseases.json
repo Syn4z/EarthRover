@@ -80,7 +80,7 @@
   },
   {
     "id": 5,
-    "name": "Burn",
+    "name": "Scorch",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water.",
     "treatment": [
       "Fungicide",
@@ -93,7 +93,7 @@
   },
   {
     "id": 1,
-    "name": "Burn",
+    "name": "Scorch",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
     "treatment": [
       "Fungicide",
@@ -152,5 +152,70 @@
     "date": "April, 2024",
     "image": "./assets/img/db/Caren\u021ba Azotului(1).jpg",
     "timestamp": 1714288784.544138
+  },
+  {
+    "id": 16,
+    "name": "Nitrogen Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 95,
+    "date": "April, 2024",
+    "image": "./assets/img/db/28042024_130742.jpg",
+    "timestamp": 1714298866.580002
+  },
+  {
+    "id": 17,
+    "name": "Potassium Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 97,
+    "date": "April, 2024",
+    "image": "./assets/img/db/28042024_130855.jpg",
+    "timestamp": 1714298937.813775
+  },
+  {
+    "id": 18,
+    "name": "Potassium Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 81,
+    "date": "April, 2024",
+    "image": "./assets/img/db/28042024_130939.jpg",
+    "timestamp": 1714298983.953768
+  },
+  {
+    "id": 19,
+    "name": "Healthy",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 94,
+    "date": "April, 2024",
+    "image": "./assets/img/db/28042024_131013.jpg",
+    "timestamp": 1714299020.034532
+  },
+  {
+    "id": 18,
+    "name": "Scorch",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 99,
+    "date": "April, 2024",
+    "image": "./assets/img/db/28042024_133526.jpg",
+    "timestamp": 1714300530.530144
   }
 ]

@@ -60,7 +60,7 @@ def update_image(image_id):
 def get_image(image_id):
     image = PredictedImages.query.get(image_id)
     if image:
-        return jsonify({'filename': image.name, 'label': image.label, 'confidence': image.confidence})
+        return jsonify({'id': image.id, 'filename': image.name, 'label': image.label, 'confidence': image.confidence})
     else:
         return jsonify({'error': 'Image not found'})
     
@@ -70,6 +70,7 @@ def get_all_images():
     image_list = []
     for image in images:
         image_data = {
+            'id': image.id,
             'filename': image.name,
             'label': image.label,
             'confidence': image.confidence

@@ -26,5 +26,4 @@ if __name__ == '__main__':
         }
     )
     app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
-    # app.run(host='192.168.189.190', port=5000, debug=True)
-    app.run(debug=True)
+    app.run(host='192.168.189.190', port=5000, debug=True)
