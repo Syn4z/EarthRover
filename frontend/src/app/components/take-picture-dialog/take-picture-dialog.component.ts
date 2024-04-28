@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-take-picture-dialog',
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class TakePictureDialogComponent {
   dialogTitle = '💥 Taking the picture';
+  endpoint = environment.raspberryPiUrl + '/take_photo';
 
   constructor(public dialogRef: MatDialogRef<TakePictureDialogComponent>,
               private http: HttpClient) { }
@@ -32,6 +34,6 @@ export class TakePictureDialogComponent {
   }
 
   takePicture() {
-    return this.http.post('https://192.168.101.99:5000/take_photo', {});
+    return this.http.post(this.endpoint, {});
   }
 }

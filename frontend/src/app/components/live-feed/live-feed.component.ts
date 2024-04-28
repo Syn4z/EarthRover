@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TakePictureDialogComponent } from '../take-picture-dialog/take-picture-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { GetPictureDialogComponent } from '../get-picture-dialog/get-picture-dialog.component';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-live-feed',
@@ -10,8 +11,8 @@ import { GetPictureDialogComponent } from '../get-picture-dialog/get-picture-dia
   styleUrls: ['./live-feed.component.scss']
 })
 export class LiveFeedComponent {
-  remoteImgSrc = '../../../assets/img/loading.gif'
-  // remoteImgSrc = 'https://192.168.101.99:5000/video_feed';
+  // remoteImgSrc = '../../../assets/img/loading.gif';
+  remoteImgSrc = environment.raspberryPiUrl + '/video_feed';
   liveImgSrc = this.remoteImgSrc;
   intervalId: any;
   

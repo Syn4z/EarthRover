@@ -1,107 +1,156 @@
 [
-    {
-        "id": 1,
-        "name": "Calcium Deficiency",
-        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-        "treatment": [
-            "Fungicide",
-            "Remove infected leaves"
-        ],
-        "confidence": 97,
-        "date": "March, 2024",
-        "image": "assets/img/calcium_dis_1.jpg"
-    },
-    {
-        "id": 2,
-        "name": "Nitrogen Deficiency",
-        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-        "treatment": [
-            "Copper-based fungicide",
-            "Remove infected leaves"
-        ],
-        "confidence": 55,
-        "date": "March, 2024",
-        "image": "assets/img/nitrogen_dis_1.jpg"
-    },
-    {
-        "id": 3,
-        "name": "Potassium Deficiency",
-        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-        "treatment": [
-            "Preventative copper-based fungicide",
-            "Remove infected leaves"
-        ],
-        "confidence": 19,
-        "date": "March, 2024",
-        "image": "assets/img/potassium_dis_1.jpg"
-    },
-    {
-        "id": 4,
-        "name": "Healthy",
-        "description": "No disease detected",
-        "treatment": [],
-        "confidence": 87,
-        "date": "February, 2024",
-        "image": "assets/img/healthy.jpg"
-    },
-    {
-        "id": 5,
-        "name": "Healthy",
-        "description": "No disease detected",
-        "treatment": [],
-        "confidence": 87,
-        "date": "March, 2024",
-        "image": "assets/img/healthy_3.jpg"
-    },
-    {
-        "id": 6,
-        "name": "Healthy",
-        "description": "No disease detected",
-        "treatment": [],
-        "confidence": 78,
-        "date": "February, 2024",
-        "image": "assets/img/healthy_2.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Healthy",
-        "description": "No disease detected",
-        "treatment": [],
-        "confidence": 87,
-        "date": "March, 2024",
-        "image": "assets/img/healthy_4.jpg"
-    },
-    {
-        "id": 8,
-        "name": "Burn",
-        "description": "A common disease of many plants. It is caused by a fungus that is spread by water.",
-        "treatment": [
-            "Fungicide",
-            "Remove infected leaves"
-        ],
-        "confidence": 65,
-        "date": "March, 2024",
-        "image": "assets/img/disease_6.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Burn",
-        "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-        "treatment": [
-            "Fungicide",
-            "Remove infected leaves"
-        ],
-        "confidence": 45,
-        "date": "January, 2024",
-        "image": "assets/img/burn.jpg"
-    },
-    {
-        "id": 10,
-        "name": "Healthy",
-        "description": "No disease detected",
-        "treatment": [],
-        "confidence": 100,
-        "date": "March, 2024",
-        "image": "assets/img/healthy_5.jpg"
-    }
+  {
+    "id": 10,
+    "name": "Calcium Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 97,
+    "date": "March, 2024",
+    "image": "assets/img/calcium_dis_1.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 9,
+    "name": "Nitrogen Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Copper-based fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 55,
+    "date": "March, 2024",
+    "image": "assets/img/nitrogen_dis_1.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 8,
+    "name": "Potassium Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Preventative copper-based fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 19,
+    "date": "March, 2024",
+    "image": "assets/img/potassium_dis_1.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 3,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 87,
+    "date": "February, 2024",
+    "image": "assets/img/healthy.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 7,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 87,
+    "date": "March, 2024",
+    "image": "assets/img/healthy_3.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 2,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 78,
+    "date": "February, 2024",
+    "image": "assets/img/healthy_2.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 6,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 87,
+    "date": "March, 2024",
+    "image": "assets/img/healthy_4.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 5,
+    "name": "Burn",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water.",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 65,
+    "date": "March, 2024",
+    "image": "assets/img/disease_6.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 1,
+    "name": "Burn",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 45,
+    "date": "January, 2024",
+    "image": "assets/img/burn.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 4,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 100,
+    "date": "March, 2024",
+    "image": "assets/img/healthy_5.jpg",
+    "timestamp": 0
+  },
+  {
+    "id": 11,
+    "name": "Healthy",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 98,
+    "date": "April, 2024",
+    "image": "./assets/img/db/photo_42_2024-03-14_12-04-47.jpg",
+    "timestamp": 1714288732.29635
+  },
+  {
+    "id": 12,
+    "name": "Calcium Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 84,
+    "date": "April, 2024",
+    "image": "./assets/img/db/Calciul(4).jpg",
+    "timestamp": 1714288732.303862
+  },
+  {
+    "id": 13,
+    "name": "Nitrogen Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": [
+      "Fungicide",
+      "Remove infected leaves"
+    ],
+    "confidence": 99,
+    "date": "April, 2024",
+    "image": "./assets/img/db/Caren\u021ba Azotului(1).jpg",
+    "timestamp": 1714288784.544138
+  }
 ]

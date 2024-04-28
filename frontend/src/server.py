@@ -1,7 +1,9 @@
 from flask import Flask, request, send_file
 from flask_cors import CORS
-
+from datetime import datetime
 import json
+import os
+import base64
 
 app = Flask(__name__)
 CORS(app)
@@ -66,5 +68,40 @@ def delete_disease():
 
   return 'Disease deleted', 200 
 
+@app.route('/image', methods=['POST'])
+def add_image():
+  results = request.get_json()
+
+  for result in results:
+    print(result['filename'])
+
+    # Checx if filename does not exist in assets/img/db
+    if not os.path.exists(f'./assets/img/db/{result["filename"]}'):
+      # Copy the image from app/photos to assets/img/db
+      with open(f'../../app/photos/{result["filename"]}', 'rb') as f:
+        with open(f'./assets/img/db/{result["filename"]}', 'wb') as img:
+          img.write(f.read())
+      
+      # Update the diseases.json file
+      with open('./app/data/diseases.json', 'r+') as f:
+        diseases = json.load(f)
+        diseases.append({
+          "id": len(diseases) + 1,
+          "name": result["label"],
+          "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+          "treatment": ["Fungicide", "Remove infected leaves"],
+          "confidence": int(result["confidence"]),
+          "date": datetime.now().strftime("%B") + ', ' + datetime.now().strftime("%Y"),
+          "image": f'./assets/img/db/{result["filename"]}',
+          "timestamp": datetime.now().timestamp()
+        })
+
+        f.seek(0)
+        json.dump(diseases, f, indent=2)
+        f.truncate()
+  
+
+  return {'All images uploaded': 200}
+
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(port=7777, debug=True)
