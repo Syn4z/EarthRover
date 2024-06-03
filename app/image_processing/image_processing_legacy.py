@@ -7,16 +7,14 @@ import tensorflow as tf
 IMG_SIZE = 256
 
 # Load the model
-loaded_model = tf.keras.models.load_model(f'tomato_lens_model_36.h5')
+loaded_model = tf.keras.models.load_model(f'model_34_legacy.h5')
 
-class_names = ['Bacterial-Spot',
- 'Early-Blight',
- 'Healthy',
- 'Late-Blight',
- 'Leaf-Mold',
- 'Mosaic-Virus',
- 'Septoria-Leaf-Spot',
- 'Target-Spot']
+class_names = ['Scorch',
+'Nitrogen Deficiency',
+'Potassium Deficiency',
+'Calcium Deficiency',
+'Phytotoxicity',
+'Healthy']
 
 # Define the predict function
 def predict(image_path):
