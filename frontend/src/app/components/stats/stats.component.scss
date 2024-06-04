@@ -3,6 +3,11 @@
     font-size: 1.75rem;
     margin: 1.5rem 0;
   }
+
+  &-table,
+  &-paginator {
+    background-color: var(--secondary-color-dark);
+  }
 }
 
 .table {

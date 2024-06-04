@@ -1,6 +1,6 @@
-<h2 class="stats-title">{{ 'STATS' | translate }}</h2>
+<h2 class="stats-title">{{ 'Table' | uppercase | translate }}</h2>
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" class="stats-table">
 
     <!-- Id Column -->
     <ng-container matColumnDef="id">
@@ -38,6 +38,7 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons
-                 aria-label="Select page of periodic elements">
+                 aria-label="Select page of periodic elements"
+                 class="stats-paginator">
   </mat-paginator>
 </div>

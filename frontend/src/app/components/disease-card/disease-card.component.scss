@@ -1,47 +1,88 @@
-img {
-  max-width: 250px;
-  height: 250px;
-  margin: 0 auto;
-}
+.card {
+  background-color: var(--secondary-color-dark) !important;
 
-h2 {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-}
+  &.active {
+    background-color: var(--primary-color-dark) !important;
 
-h3 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-weight: normal;
-  font-size: 0.9rem;
-  font-style: italic;
-}
+    .card-content {
+      color: var(--primary-color-dark) !important;
+    }
+  }
 
-img {
-  margin-bottom: 2rem;
+  &-img {
+    max-width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+
+    &-healthy {
+      --img-size: 360px;
+      max-width: var(--img-size);
+      height: var(--img-size);
+    }
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &-title {
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &-subtitle {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  &-content {
+    background-color: var(--body-text-color);
+    color: var(--secondary-color-dark);
+    font-weight: bold;
+    padding: 1rem 0;
+    min-height: 100%;
+  }
 }
 
 .description {
   font-style: italic;
   text-align: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .treatment {
-  margin-top: 1rem;
-  text-align: center;
-  color: #2eb82e;
+  &-title {
+    margin-top: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    color: var(--body-text-color);
+
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  }
 
   &-list {
+    margin-left: 3rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
-  
+
   &-item {
+    color: var(--secondary-color-dark);
     list-style: none;
-    background: url('../../../assets/img/treatment.png') no-repeat left center;
+    background: url("../../../assets/img/treatment.png") no-repeat left center;
     background-size: 20px 20px;
     padding-left: 1.5rem;
     margin-top: 0.5rem;

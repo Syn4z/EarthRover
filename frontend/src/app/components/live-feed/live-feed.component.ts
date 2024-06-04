@@ -4,6 +4,8 @@ import { TakePictureDialogComponent } from '../take-picture-dialog/take-picture-
 import { HttpClient } from '@angular/common/http';
 import { GetPictureDialogComponent } from '../get-picture-dialog/get-picture-dialog.component';
 import { environment } from '../../../environments/environment.development';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-live-feed',
@@ -11,16 +13,35 @@ import { environment } from '../../../environments/environment.development';
   styleUrls: ['./live-feed.component.scss']
 })
 export class LiveFeedComponent {
-  // remoteImgSrc = '../../../assets/img/loading.gif';
+  errorImgSrc = '../../../assets/img/loading.gif';
   remoteImgSrc = environment.raspberryPiUrl + '/video_feed';
-  liveImgSrc = this.remoteImgSrc;
+  liveImgSrc = this.errorImgSrc;
   intervalId: any;
   
-  constructor(public dialog: MatDialog, http: HttpClient) { }
+  constructor(public dialog: MatDialog, private http: HttpClient) { }
   
+  // ngOnInit() {
+  //   this.intervalId = setInterval(() => {
+  //     this.liveImgSrc = this.remoteImgSrc + '?timestamp=' + new Date().getTime();
+  //   }, 5000);
+  // }
+
+  // If this doesn't work, uncomment the above ngOnInit() 
+  // and comment out the below ngOnInit()
   ngOnInit() {
     this.intervalId = setInterval(() => {
-      this.liveImgSrc = this.remoteImgSrc + '?timestamp=' + new Date().getTime();
+      this.http.get(this.remoteImgSrc, { responseType: 'blob' }).pipe(
+        catchError(error => {
+          console.error('Error fetching remote image:', error);
+          return of(null);
+        })
+      ).subscribe(response => {
+        if (response !== null) {
+          this.liveImgSrc = this.remoteImgSrc + '?timestamp=' + new Date().getTime();
+        } else {
+          this.remoteImgSrc = this.errorImgSrc;
+        }
+      });
     }, 5000);
   }
 

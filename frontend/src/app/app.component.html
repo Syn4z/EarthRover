@@ -1,24 +1,79 @@
-<div class="container">
-  <div class="logo-container">
-    <img src="assets/img/logo.png" alt="logo">
-    <h1>Tomato Lens</h1>
-    <img class="flipped" src="assets/img/logo.png" alt="logo">
-  </div>
-  <div class="btn-container">
-    <button class="btn" type="button" (click)="switchLanguage('en')"
-      [ngClass]="{ 'active': currentLanguage === 'en' }"
-    >
-      <img class="btn-img" src="../assets/img/usa.jpg" alt="usa">
-      en
+<mat-drawer-container class="sidenav-container" autosize hasBackdrop="false">
+  <mat-drawer #drawer class="sidenav" mode="over">
+    <div class="sidenav-logo-wrapper">
+      <img class="sidenav-logo" src="assets/img/logo.png" alt="logo" />
+      <h2>Tomato Lens</h2>
+    </div>
+    <div class="sidenav-section">
+      <h2 class="sidenav-section-title">{{ 'Sections' | uppercase | translate }}</h2>
+      <div class="sidenav-section-content sidenav-links">
+        <a class="sidenav-link" href="#livefeed">
+          <mat-icon>live_tv</mat-icon>
+          {{ 'Live' | uppercase | translate }}
+        </a>
+        <a class="sidenav-link" href="#table">
+          <mat-icon>table_chart</mat-icon>
+          {{ 'Table' | uppercase | translate }}
+        </a>
+        <a class="sidenav-link" href="#gallery">
+          <mat-icon>photo_library</mat-icon>
+          {{ 'Gallery' | uppercase | translate }}
+        </a>
+        <a class="sidenav-link" href="#footer">
+          <mat-icon>info</mat-icon>
+          {{ 'About' | uppercase | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="sidenav-section">
+      <h2 class="sidenav-section-title">{{ 'Language' | uppercase | translate }}</h2>
+      <div class="sidenav-section-content">
+        <button
+          class="sidenav-lang-btn"
+          type="button"
+          (click)="switchLanguage('en')"
+          [ngClass]="{ active: currentLanguage === 'en' }"
+        >
+          {{'en' | uppercase }}
+        </button>
+        <button
+          class="sidenav-lang-btn"
+          type="button"
+          (click)="switchLanguage('ro')"
+          [ngClass]="{ active: currentLanguage === 'ro' }"
+        >
+          {{'ro' | uppercase }}
+        </button> 
+      </div>
+    </div>
+    <button class="sidenav-btn-exit" type="button" (click)="drawer.toggle()">
+      {{ 'Close' | uppercase | translate }} 
+      <mat-icon>logout</mat-icon>
     </button>
-    <button class="btn" type="button" (click)="switchLanguage('ro')"
-      [ngClass]="{ 'active': currentLanguage === 'ro' }"
-    >
-      <img class="btn-img" src="../assets/img/moldova.jpg" alt="moldova" class="btn-img">
-      ro
-    </button>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <div class="sidenav-part">
+      <button
+        class="sidenav-part-btn"
+        type="button"
+        mat-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>settings</mat-icon>
+        {{ 'Settings' | uppercase | translate }} 
+      </button>
+    </div>
+    <div class="container">
+      <div class="logo-container">
+        <img src="assets/img/logo.png" alt="logo" />
+        <h1>Tomato Lens</h1>
+        <img class="flipped" src="assets/img/logo.png" alt="logo" />
+      </div>
+      <app-live-feed id="livefeed"></app-live-feed>
+      <app-stats id="table"></app-stats>
+      <app-disease-card-list id="gallery"></app-disease-card-list>
+    </div>
+    <app-footer></app-footer>
   </div>
-  <app-live-feed></app-live-feed>
-  <app-stats></app-stats>
-  <app-disease-card-list></app-disease-card-list>
-</div>
+</mat-drawer-container>

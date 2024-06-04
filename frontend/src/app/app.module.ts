@@ -23,6 +23,10 @@ import { MatTableModule } from '@angular/material/table';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GetPictureDialogComponent } from './components/get-picture-dialog/get-picture-dialog.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from './components/footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TakePictureDialogComponent,
     StatsComponent,
     GetPictureDialogComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule,
+    NgIf,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
