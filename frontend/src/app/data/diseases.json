@@ -3,10 +3,7 @@
     "id": 10,
     "name": "Calcium Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 97,
     "date": "March, 2024",
     "image": "assets/img/calcium_dis_1.jpg",
@@ -16,10 +13,7 @@
     "id": 9,
     "name": "Nitrogen Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Copper-based fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Copper-based fungicide", "Remove infected leaves"],
     "confidence": 55,
     "date": "March, 2024",
     "image": "assets/img/nitrogen_dis_1.jpg",
@@ -82,10 +76,7 @@
     "id": 5,
     "name": "Scorch",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water.",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 65,
     "date": "March, 2024",
     "image": "assets/img/disease_6.jpg",
@@ -95,10 +86,7 @@
     "id": 1,
     "name": "Scorch",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 45,
     "date": "January, 2024",
     "image": "assets/img/burn.jpg",
@@ -117,11 +105,8 @@
   {
     "id": 11,
     "name": "Healthy",
-    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "description": "No disease detected",
+    "treatment": [],
     "confidence": 98,
     "date": "April, 2024",
     "image": "./assets/img/db/photo_42_2024-03-14_12-04-47.jpg",
@@ -131,10 +116,7 @@
     "id": 12,
     "name": "Calcium Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 84,
     "date": "April, 2024",
     "image": "./assets/img/db/Calciul(4).jpg",
@@ -144,10 +126,7 @@
     "id": 13,
     "name": "Nitrogen Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 99,
     "date": "April, 2024",
     "image": "./assets/img/db/Caren\u021ba Azotului(1).jpg",
@@ -157,10 +136,7 @@
     "id": 16,
     "name": "Nitrogen Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 95,
     "date": "April, 2024",
     "image": "./assets/img/db/28042024_130742.jpg",
@@ -170,10 +146,7 @@
     "id": 17,
     "name": "Potassium Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 97,
     "date": "April, 2024",
     "image": "./assets/img/db/28042024_130855.jpg",
@@ -183,10 +156,7 @@
     "id": 18,
     "name": "Potassium Deficiency",
     "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "treatment": ["Fungicide", "Remove infected leaves"],
     "confidence": 81,
     "date": "April, 2024",
     "image": "./assets/img/db/28042024_130939.jpg",
@@ -195,27 +165,61 @@
   {
     "id": 19,
     "name": "Healthy",
-    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "description": "No disease detected",
+    "treatment": [],
     "confidence": 94,
     "date": "April, 2024",
     "image": "./assets/img/db/28042024_131013.jpg",
     "timestamp": 1714299020.034532
   },
   {
-    "id": 18,
-    "name": "Scorch",
-    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-    "treatment": [
-      "Fungicide",
-      "Remove infected leaves"
-    ],
+    "id": 20,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 98,
+    "date": "May, 2024",
+    "image": "./assets/img/healthy.jpg",
+    "timestamp": 1714299020.034533
+  },
+  {
+    "id": 21,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
     "confidence": 99,
-    "date": "April, 2024",
-    "image": "./assets/img/db/28042024_133526.jpg",
-    "timestamp": 1714300530.530144
+    "date": "June, 2024",
+    "image": "./assets/img/healthy_2.jpg",
+    "timestamp": 1714299020.034534
+  },
+  {
+    "id": 20,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 93,
+    "date": "June, 2024",
+    "image": "./assets/img/db/healthy_lol.jpg",
+    "timestamp": 1717429544.805049
+  },
+  {
+    "id": 21,
+    "name": "Nitrogen Deficiency",
+    "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
+    "treatment": ["Fungicide", "Remove infected leaves"],
+    "confidence": 99,
+    "date": "June, 2024",
+    "image": "./assets/img/db/Caren\u021ba Azotului(2).jpg",
+    "timestamp": 1717429582.762544
+  },
+  {
+    "id": 22,
+    "name": "Healthy",
+    "description": "No disease detected",
+    "treatment": [],
+    "confidence": 88,
+    "date": "June, 2024",
+    "image": "./assets/img/db/photo_74_2024-03-13_21-02-47.jpg",
+    "timestamp": 1717429650.699982
   }
 ]

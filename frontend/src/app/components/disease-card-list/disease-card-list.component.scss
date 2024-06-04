@@ -5,11 +5,29 @@
 .disease-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 3rem;
 
   .disease-card {
     flex-basis: 31%;
+  }
+}
+
+.month {
+  &.all {
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      margin: 1.5rem 0;
+      background-color: var(--secondary-color-light);
+    }
+
+    &:first-child {
+      &::before {
+        display: none;
+      }
+    }
   }
 }
 
@@ -18,7 +36,7 @@
   margin: 1.5rem 0;
 
   &-month {
-    color: yellow;
+    color: var(--body-text-color);
   }
 }
 

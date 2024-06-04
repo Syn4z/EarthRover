@@ -17,7 +17,7 @@
   </div>
 
   <div class="months">
-    <div class="month" *ngFor="let month of months">
+    <div class="month" *ngFor="let month of months" [ngClass]="{'all': selectedValue === 'all'}">
       <h2 
         class="section-title section-title-month"
         *ngIf="month.viewValue !== 'All' && (selectedValue === month.value || selectedValue === 'all')"

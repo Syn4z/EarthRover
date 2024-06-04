@@ -1,3 +1,13 @@
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
 .live {
   &-container {
     display: flex;
@@ -11,6 +21,18 @@
     width: var(--size);
     height: var(--size);
     margin-right: 0.5rem;
+    @include keyframes(fade) {
+      0%, 100% {
+        opacity: 1;
+      }
+      25%, 75% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+    @include animate(fade, 1.5s, linear, infinite);
   }
 
   &-title {
@@ -30,7 +52,6 @@
       align-items: center;
       justify-content: center;
     }
-
   }
 
   &-btn {

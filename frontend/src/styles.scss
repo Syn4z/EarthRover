@@ -1,18 +1,35 @@
+@import "~material-icons/iconfont/material-icons.css";
 
-:root {
-  --primary-font: "Montserrat", sans-serif;
-  --body-background: #191c24;
-  --body-text-color: #f5f5f5;
+mat-icon {
+  font-family: "Material Icons" !important;
 }
 
-*, *::before, *::after {
+:root {
+  --primary-font: "Raleway", "Arial", sans-serif;
+  --body-background: #252a34;
+  --body-text-color: #f5f5f5;
+  --primary-color: #ef402b;
+  --primary-color-dark: #9e2525;
+  --secondary-color: #609966;
+  --secondary-color-dark: #3c5e3f;
+  --secondary-color-light: #7eca86;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: var(--primary-font);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  position: relative;
   background-color: var(--body-background);
   color: var(--body-text-color);
 }
@@ -22,15 +39,21 @@ body {
   margin: 0 auto;
 }
 
-.text-green {
-  color: #00ff00;
+.text-badge {
+  background-color: var(--body-text-color);
   font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 30px;
+}
+
+.text-green {
+  color: var(--secondary-color-dark);
 }
 
 .text-yellow {
-  color: yellow;
+  color: #8b8000;
 }
 
 .text-red {
-  color: red;
+  color: var(--primary-color-dark);
 }

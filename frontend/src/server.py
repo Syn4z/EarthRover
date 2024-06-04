@@ -85,11 +85,19 @@ def add_image():
       # Update the diseases.json file
       with open('./app/data/diseases.json', 'r+') as f:
         diseases = json.load(f)
+        
+        description = "A common disease of many plants. It is caused by a fungus that is spread by water"
+        treatment = ["Fungicide", "Remove infected leaves"]
+
+        if result["label"] == "Healthy":
+          description = "No disease detected"
+          treatment = []
+
         diseases.append({
           "id": len(diseases) + 1,
           "name": result["label"],
-          "description": "A common disease of many plants. It is caused by a fungus that is spread by water",
-          "treatment": ["Fungicide", "Remove infected leaves"],
+          "description": description,
+          "treatment": treatment,
           "confidence": int(result["confidence"]),
           "date": datetime.now().strftime("%B") + ', ' + datetime.now().strftime("%Y"),
           "image": f'./assets/img/db/{result["filename"]}',

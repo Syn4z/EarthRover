@@ -19,6 +19,8 @@ export class DiseaseCardListComponent {
 
   months: any[] = [
     {value: 'all', viewValue: 'All'},
+    {value: 'June, 2024', viewValue: 'June'},
+    {value: 'May, 2024', viewValue: 'May'},
     {value: 'April, 2024', viewValue: 'April'},
     {value: 'March, 2024', viewValue: 'March'},
     {value: 'February, 2024', viewValue: 'February'},
@@ -30,6 +32,8 @@ export class DiseaseCardListComponent {
     'February, 2024': 2,
     'March, 2024': 3,
     'April, 2024': 4,
+    'May, 2024': 5,
+    'June, 2024': 6
   }; 
 
   constructor(private http: HttpClient) {}

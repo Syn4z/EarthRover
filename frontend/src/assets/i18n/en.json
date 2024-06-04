@@ -2,7 +2,11 @@
   "LIVE": "Live feed",
   "PICTURE": "Take a picture",
   "STATS": "Stats",
+  "TABLE": "Table",
   "GALLERY": "Gallery",
+  "ABOUT": "About",
+  "JUNE": "June",
+  "MAY": "May",
   "APRIL": "April",
   "MARCH": "March",
   "FEBRUARY": "February",
@@ -27,5 +31,9 @@
   "Image": "Image",
   "Confidence": "Confidence",
   "Date": "Date",
-  "REFRESH": "Refresh"
+  "REFRESH": "Refresh",
+  "CLOSE": "Close",
+  "SETTINGS": "Settings",
+  "SECTIONS": "Sections",
+  "LANGUAGE": "Language"
 }
