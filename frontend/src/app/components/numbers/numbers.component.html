@@ -1,0 +1,30 @@
+<section class="numbers">
+  <h2 class="numbers-title">{{ "Stats" | uppercase | translate }}</h2>
+  <div class="numbers-boxes">
+    <div class="box box-healthy">
+      <h3 class="box-title box-title-healthy">
+        {{ "Healthys" | uppercase | translate }}
+      </h3>
+      <p class="box-number">{{ healthyCount }}</p>
+    </div>
+    <div class="box box-infected">
+      <h3 class="box-title">{{ "Sicks" | uppercase | translate }}</h3>
+      <p class="box-number">{{ infectedCount }}</p>
+    </div>
+  </div>
+  <div class="disease-types box box-disease">
+    <h3 class="box-title box-title-disease">
+      {{ "Diseases" | uppercase | translate }}
+    </h3>
+    <div class="disease-type-wrapper">
+      <div class="disease-type" *ngFor="let t of diseaseTypes">
+        <h4 class="disease-title">
+          {{ t.type | uppercase | translate }}
+        </h4>
+        <p class="disease-count">
+          {{ t.count }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

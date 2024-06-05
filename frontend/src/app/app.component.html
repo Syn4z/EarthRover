@@ -11,6 +11,10 @@
           <mat-icon>live_tv</mat-icon>
           {{ 'Live' | uppercase | translate }}
         </a>
+        <a class="sidenav-link" href="#numbers">
+          <mat-icon>equalizer</mat-icon>
+          {{ 'Stats' | uppercase | translate }}
+        </a>
         <a class="sidenav-link" href="#table">
           <mat-icon>table_chart</mat-icon>
           {{ 'Table' | uppercase | translate }}
@@ -71,6 +75,7 @@
         <img class="flipped" src="assets/img/logo.png" alt="logo" />
       </div>
       <app-live-feed id="livefeed"></app-live-feed>
+      <app-numbers id="numbers"></app-numbers>
       <app-stats id="table"></app-stats>
       <app-disease-card-list id="gallery"></app-disease-card-list>
     </div>
