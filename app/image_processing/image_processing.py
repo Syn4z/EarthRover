@@ -7,7 +7,7 @@ import tensorflow as tf
 IMG_SIZE = 256
 
 # Load the model
-loaded_model = tf.keras.models.load_model(f'tomato_lens_model_36.h5')
+loaded_model = tf.keras.models.load_model(f'image_processing/tomato_lens_model_36.h5')
 
 class_names = ['Bacterial-Spot',
  'Early-Blight',

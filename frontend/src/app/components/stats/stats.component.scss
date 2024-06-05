@@ -2,6 +2,12 @@
   &-title {
     font-size: 1.75rem;
     margin: 1.5rem 0;
+    background: -webkit-linear-gradient(
+      var(--secondary-color-light),
+      var(--body-text-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &-table,
