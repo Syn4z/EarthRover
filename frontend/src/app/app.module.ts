@@ -22,12 +22,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { GetPictureDialogComponent } from './components/get-picture-dialog/get-picture-dialog.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './components/footer/footer.component';
 import { NumbersComponent } from './components/numbers/numbers.component';
+import { AutomaticalDialogComponent } from './components/automatical-dialog/automatical-dialog.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,9 +41,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LiveFeedComponent,
     TakePictureDialogComponent,
     StatsComponent,
-    GetPictureDialogComponent,
     FooterComponent,
     NumbersComponent,
+    AutomaticalDialogComponent,
   ],
   imports: [
     BrowserModule,

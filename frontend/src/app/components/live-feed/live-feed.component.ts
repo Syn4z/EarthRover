@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TakePictureDialogComponent } from '../take-picture-dialog/take-picture-dialog.component';
+import { AutomaticalDialogComponent } from '../automatical-dialog/automatical-dialog.component';
 import { HttpClient } from '@angular/common/http';
-import { GetPictureDialogComponent } from '../get-picture-dialog/get-picture-dialog.component';
 import { environment } from '../../../environments/environment.development';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -57,9 +57,9 @@ export class LiveFeedComponent {
     });
   }
 
-  refresh() {
-    this.dialog.open(GetPictureDialogComponent, {
-      disableClose: false
+  openAutomaticalDialog() {
+    this.dialog.open(AutomaticalDialogComponent, {
+      disableClose: true
     });
   }
 }

@@ -1,0 +1,7 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">{{ dialogTitle | translate }}{{ this.dotSuffix }}</h2>
+  <div class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <button class="stop-btn" type="button" (click)="close()">{{ 'Stop' | translate }}</button>
+</div>
