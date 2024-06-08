@@ -1,5 +1,6 @@
 {
   "LIVE": "Inregistrare live",
+  "ROBOTINO_BTN": "Fotografiază (automat)",
   "HEALTHYS": "Sănătoase",
   "SICKS": "Bolnave",
   "DISEASES": "Boli",
@@ -48,6 +49,8 @@
   "Name": "Nume",
   "Image": "Imagine",
   "Date": "Data",
+  "Stop": "Termină înregistrarea",
+  "📷 Taking the pictures": "📷 Facem pozele", 
   "💥 Taking the picture": "💥 Focusăm camera",
   "🧠 Analyzing the image": "🧠 Analizăm imaginea",
   "✅ Getting the results": "✅ Obținem rezultatele",
