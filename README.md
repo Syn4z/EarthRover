@@ -57,11 +57,17 @@ python3 main.py
 ### Live Feed
 ![Live Feed](./frontend/src/assets/img/readme/live_feed.png)
 
+### Stats
+![Stats](./frontend/src/assets/img/readme/stats.png)
+
 ### Gallery
 ![Gallery](./frontend/src/assets/img/readme/gallery.png)
 
 ### Table
 ![Table](./frontend/src/assets/img/readme/table.png)
+
+### Sidebar
+![Sidebar](./frontend/src/assets/img/readme/sidebar.png)
 
 ### Swagger 
 ![Swagger](./frontend/src/assets/img/readme/swagger.png)
