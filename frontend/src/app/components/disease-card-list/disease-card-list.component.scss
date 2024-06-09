@@ -55,3 +55,28 @@ mat-form-field {
   margin-top: 1rem !important;
   margin-bottom: 0 !important;
 }
+
+@media screen and (max-width: 1750px) {
+  .disease-container {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .disease-container {
+    .disease-card {
+      flex-basis: 48%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .disease-container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .disease-card {
+      flex-basis: 100%;
+    }
+  }
+}

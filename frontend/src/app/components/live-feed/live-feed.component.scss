@@ -125,3 +125,11 @@
     }
   }
 }
+
+@media screen and (max-width: 550px) {
+  .live {
+    &-img {
+      --img-size: 100%;
+    }
+  }
+}

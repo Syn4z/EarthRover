@@ -127,3 +127,27 @@
     padding-top: 0.8rem;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .numbers {
+    &-boxes {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .box {
+    min-width: 100%;
+    min-height: auto;
+
+    &-infected {
+      &::after {
+        bottom: calc(0%);
+        left: calc(40% - 10px);
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

@@ -88,3 +88,15 @@
     margin-top: 0.5rem;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .card {
+    &-img {
+      &-healthy {
+        --img-size: 250px;
+        max-width: var(--img-size);
+        height: var(--img-size);
+      }
+    }
+  }
+}
