@@ -5,53 +5,65 @@
       <h2>Tomato Lens</h2>
     </div>
     <div class="sidenav-section">
-      <h2 class="sidenav-section-title">{{ 'Sections' | uppercase | translate }}</h2>
+      <h2 class="sidenav-section-title">
+        {{ "Sections" | uppercase | translate }}
+      </h2>
       <div class="sidenav-section-content sidenav-links">
         <a class="sidenav-link" href="#livefeed">
           <mat-icon>live_tv</mat-icon>
-          {{ 'Live' | uppercase | translate }}
+          {{ "Live" | uppercase | translate }}
         </a>
         <a class="sidenav-link" href="#numbers">
           <mat-icon>equalizer</mat-icon>
-          {{ 'Stats' | uppercase | translate }}
+          {{ "Stats" | uppercase | translate }}
         </a>
         <a class="sidenav-link sidenav-link-table" href="#table">
           <mat-icon>table_chart</mat-icon>
-          {{ 'Table' | uppercase | translate }}
+          {{ "Table" | uppercase | translate }}
         </a>
         <a class="sidenav-link" href="#gallery">
           <mat-icon>photo_library</mat-icon>
-          {{ 'Gallery' | uppercase | translate }}
+          {{ "Gallery" | uppercase | translate }}
         </a>
         <a class="sidenav-link" href="#footer">
           <mat-icon>info</mat-icon>
-          {{ 'About' | uppercase | translate }}
+          {{ "About" | uppercase | translate }}
         </a>
       </div>
     </div>
     <div class="sidenav-section">
-      <h2 class="sidenav-section-title">{{ 'Language' | uppercase | translate }}</h2>
+      <h2 class="sidenav-section-title">
+        {{ "Language" | uppercase | translate }}
+      </h2>
       <div class="sidenav-section-content">
-        <button
-          class="sidenav-lang-btn"
-          type="button"
-          (click)="switchLanguage('en')"
-          [ngClass]="{ active: currentLanguage === 'en' }"
-        >
-          {{'en' | uppercase }}
-        </button>
         <button
           class="sidenav-lang-btn"
           type="button"
           (click)="switchLanguage('ro')"
           [ngClass]="{ active: currentLanguage === 'ro' }"
         >
-          {{'ro' | uppercase }}
-        </button> 
+          {{ "ro" | uppercase }}
+        </button>
+        <button
+          class="sidenav-lang-btn"
+          type="button"
+          (click)="switchLanguage('ru')"
+          [ngClass]="{ active: currentLanguage === 'ru' }"
+        >
+          {{ "ru" | uppercase }}
+        </button>
+        <button
+          class="sidenav-lang-btn"
+          type="button"
+          (click)="switchLanguage('en')"
+          [ngClass]="{ active: currentLanguage === 'en' }"
+        >
+          {{ "en" | uppercase }}
+        </button>
       </div>
     </div>
     <button class="sidenav-btn-exit" type="button" (click)="drawer.toggle()">
-      {{ 'Close' | uppercase | translate }} 
+      {{ "Close" | uppercase | translate }}
       <mat-icon>logout</mat-icon>
     </button>
   </mat-drawer>
@@ -65,7 +77,7 @@
         (click)="drawer.toggle()"
       >
         <mat-icon>settings</mat-icon>
-        {{ 'Settings' | uppercase | translate }} 
+        {{ "Settings" | uppercase | translate }}
       </button>
     </div>
     <div class="container">
