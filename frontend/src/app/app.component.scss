@@ -112,6 +112,7 @@
     margin-top: 1rem;
     display: flex;
     background-color: var(--secondary-color);
+    z-index: 1000;
 
     &-btn {
       display: flex;
@@ -180,5 +181,38 @@
     --img-size: 30px;
     width: var(--img-size);
     height: auto;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .sidenav {
+    width: 30vw;
+
+    &-part {
+      top: initial;
+      bottom: 0;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 70vw;
+  }
+
+  #table,
+  .sidenav-link-table {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .site {
+    &-title {
+      font-size: 1.5rem !important;
+    }
   }
 }
